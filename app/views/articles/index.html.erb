@@ -1,0 +1,19 @@
+<h1>Welcome to Wikinimous!</h1>
+<p>A better version of Wikipedia</p>
+
+<ul>
+  <% @articles.each do |article| %>
+    <li>
+      <strong><%= article.title %></strong>
+      <br>
+      <%= link_to "View article", article_path(article) %>
+      <br>
+      <%= link_to "Edit= article", edit_article_path(article) %>
+      <br>
+      <%= link_to "Delete this article", article_path(article), method: :delete, data: { confirm: "Are you sure?" } %>
+<!--       <%= article.content %> -->
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Create new article", new_article_path %>
